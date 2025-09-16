@@ -1,0 +1,432 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+html {scroll-behavior: smooth;}
+
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 100%;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+button:focus-visible {
+    outline: 2px solid #4a90e2 !important;
+    outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; }
+
+/* Typography */
+h1, h2, h3, h4, h5, h6, p { margin-bottom: 1rem; }
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header/Navigation */
+.navbar {
+    background-color: #000000;
+    padding: 20px 0;
+    position: fixed; /* fixed at top */
+    top: 0;          /* stick to top */
+    left: 0;
+    width: 100%;
+    z-index: 1000;   /* stay above other content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* optional shadow */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+.logo span.accent {
+    color: #bf9049;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.nav-item a:hover {
+    color: #bf9049;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 2px 0;
+    transition: all 0.3s ease;
+}
+
+/* Prevent content from going under navbar */
+body {
+    padding-top: 70px; /* adjust this value based on navbar height */
+}
+
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.hero-image {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    z-index: -1;
+}
+.hero-content {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    text-align: left;
+    z-index: 1;}
+.hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 4rem;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+    .hero-title { font-size: 6rem; }
+}
+.hero-title span.accent { color: #bf9049; }
+.hero-subtitle {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: #c4c4c4;
+    margin-bottom: 2rem;
+}
+.hero-subtitle span.accent { color: #bf9049; }
+
+/* Stats Section */
+.stats { padding: 150px 0; }
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+.stat-item { text-align: center; flex: 1; min-width: 200px; }
+.stat-number {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+.stat-text {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+/* Work Sections */
+.work-section { padding: 150px 0; }
+
+.work-container {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+@media (min-width: 992px) {
+    .work-container { gap: 400px; }
+}
+
+.work-item {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+@media (min-width: 992px) {
+    .work-item {
+        flex-direction: row;
+        align-items: flex-start;
+        position: relative; /* for the button positioning */
+    }
+    .work-item.reverse { flex-direction: row-reverse; }
+}
+
+.work-content { flex: 1; }
+.work-image { flex: 1; overflow: hidden; }
+
+.work-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;}
+.work-title span.accent { color: #bf9049; }
+
+.work-description {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0; /* remove margin-bottom since button is now outside */
+}
+
+/* Button styling */
+.work-item .btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid #ffffff;
+    border-radius: 500px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    align-self: center; /* centers horizontally */
+}
+
+.work-item .btn:hover { background-color: rgba(255, 255, 255, 0.1); }
+
+@media (min-width: 992px) {
+    /* Make the button span full width below the row */
+    .work-item .btn {
+        position: absolute;
+        bottom: -200px; /* space below the image/text row */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+
+/* About Section */
+.about { 
+    padding: 150px 0; 
+    position: relative; 
+}
+.about-container { 
+    position: relative; 
+}
+.about-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(20%); /* Makes it 80% darker */
+}
+.about-content {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+}
+.about-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: #bf9049;
+    margin-bottom: 1.5rem;
+}
+.about-text {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Global Button - pill style */
+.btn {
+    display: inline-block;
+    padding: 14px 45px;           
+    border: 2px solid #bf9049;    
+    border-radius: 50px;          
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 20px;  /* slightly smaller gap for About section */
+    text-decoration: none; /* ensures links look like buttons */
+}
+
+.btn:hover {
+    background-color: rgba(191, 144, 73, 0.2); 
+    color: #ffffff;
+}
+
+
+/* Contact Section */
+.contact {
+    padding: 120px 0;   /* more top & bottom space for the section */
+    text-align: center;
+}
+
+.contact-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: #bf9049;
+    margin-bottom: 4rem;  /* more space below headline */
+}
+
+@media (min-width: 768px) {
+    .contact-title {
+        font-size: 3.5rem;
+    }
+}
+
+.contact-text {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;  /* more space before button */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Contact Button - pill style */
+.contact .btn {
+    display: inline-block;
+    padding: 14px 45px;           /* slightly bigger for balance */
+    border: 2px solid #bf9049;    /* accent color border */
+    border-radius: 50px;          /* fully rounded pill shape */
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 50px;             /* small gap above button */
+}
+
+.contact .btn:hover {
+    background-color: rgba(191, 144, 73, 0.2); /* subtle hover effect */
+    color: #ffffff;
+}
+
+
+/* Footer */
+.footer {
+    position: relative; /* allows absolute positioning inside */
+    padding: 60px 0 30px;
+    border-top: 1px solid #0d0d0d;
+}
+.footer-container {
+    text-align: center; /* keep other content centered */
+    position: relative; /* reference for absolute positioning */
+}
+.footer-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+}
+.footer-logo span.accent { color: #bf9049; }
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 2rem;
+}
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+.footer-bottom {
+    position: absolute;
+    top: 10px;   /* adjust distance from top */
+    right: 20px; /* adjust distance from right */
+    margin-top: 0; /* remove existing margin */
+}
+.footer-icon {
+    width: 40px;
+    height: auto;
+    margin: 0; /* remove auto margin since it's positioned */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .hero-title { font-size: 3.5rem; }
+    .work-title { font-size: 2rem; }
+    /* -- REMOVED the old .about-content styles -- */
+}
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 70%; height: 100vh;
+        background-color: #000000;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        z-index: 100;
+    }
+    .nav-menu.active { right: 0; }
+    .hamburger { display: flex; z-index: 101; }
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+    .stats-container { flex-direction: column; gap: 40px; }
+    .work-title { font-size: 1.8rem; }
+    .contact-title { font-size: 2rem; }
+    .footer-logo { font-size: 2rem; }
+}
