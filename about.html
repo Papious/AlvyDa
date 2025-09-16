@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Me - Alvy Arnob</title>
+    <link rel="stylesheet" href="Style/about.css" />
+</head>
+<body>
+    <!-- Navigation -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo">
+            <a href="index.html">ALVY <span class="accent">ARNOB</span></a>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="workspace.html">WORK</a></li>
+            <li class="nav-item"><a href="about.html">ABOUT ME</a></li>
+            <li class="nav-item"><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+    <!-- Biography Section -->
+    <section class="biography-section">
+        <div class="container biography-container">
+            <div class="biography-content">
+                <h2 class="biography-title">BIOGRAPHY</h2>
+                <p class="biography-text">
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                </p>
+                <p class="biography-text">
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                </p>
+            </div>
+            <div class="biography-image">
+                <img src="img/DP.png" alt="Alvy Arnob" class="profile-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section">
+        <div class="container">
+            <h2 class="section-title">EXPERIENCES</h2>
+            
+            <div class="timeline">
+                <!-- Timeline Items -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Present</div>
+                        <div class="timeline-role">FOUNDER OF UNKNOWN STUDIOS</div>
+                        <div class="timeline-company">Artist | Illustrator | Animator</div>
+                    </div>
+                    <div class="timeline-icon">
+                        <img src="img/relume.svg" alt="Icon" width="16">
+                    </div>
+                </div>
+
+                <!-- (repeat more timeline items here as in your code) -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn">View CV/Bio</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements-section">
+        <div class="container achievements-container">
+            <div class="achievements-content">
+                <h2 class="achievements-title">ACHIEVEMENTS</h2>
+                <p class="achievements-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis malesuada vel.
+                </p>
+            </div>
+            <div class="achievements-image">
+                <img src="img/placeholder-image.png" alt="Achievements" class="achievement-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2 class="cta-title">LET'S BUILD SOMETHING TOGETHER</h2>
+            <p class="cta-text">I'm excited to hear what you're looking for.</p>
+            <button class="btn">Contact Now</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">ALVY <span class="accent">ARNOB</span></div>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <img src="Style/Icons/FB.png" alt="Facebook" width="24">
+                    <span>Facebook</span>
+                </a>
+                <a href="#" class="social-link">
+                    <img src="Style/Icons/IG.png" alt="Instagram" width="24">
+                    <span>Instagram</span>
+                </a>
+                <a href="#" class="social-link">
+                    <img src="Style/Icons/LD.png" alt="LinkedIn" width="24">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="#" class="social-link">
+                    <img src="Style/Icons/WA.png" alt="WhatsApp" width="20">
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <img src="img/subtract.svg" alt="Logo Icon" class="footer-icon">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
