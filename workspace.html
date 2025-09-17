@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alvy Arnob - Traditional Work</title>
+    <link rel="stylesheet" href="Style/workspace.css">
+    <style>
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #0d0d0d;
+            border: 1px solid #bf9049;
+            border-radius: 8px;
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 4px;
+            object-fit: contain;
+        }
+
+        .modal-text {
+            padding: 0 15px;
+        }
+
+        .modal-text h2 {
+            font-family: 'DM Serif Display', serif;
+            color: #bf9049;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .modal-text p {
+            font-family: 'Nunito Sans', sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #bf9049;
+            background: none;
+            border: none;
+            font-weight: bold;
+        }
+
+        .close-btn:hover {
+            color: #ffffff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Responsive adjustments for modal */
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 15px;
+            }
+            
+            .modal-text h2 {
+                font-size: 1.5rem;
+            }
+            
+            .close-btn {
+                top: 10px;
+                right: 15px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">ALVY <span class="accent">ARNOB</span></a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="workspace.html">WORK</a></li>
+                <li class="nav-item"><a href="about.html">ABOUT ME</a></li>
+                <li class="nav-item"><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <section class="traditional-work">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="display-font">
+                    <span class="traditional">TRADITIONAL</span> 
+                    <span class="work">WORK</span>
+                </h2>
+            </div>
+            
+            <div class="gallery-arrows">
+                <button class="arrow-btn">
+                    <img src="img/vector.svg" alt="Previous">
+                </button>
+                <button class="arrow-btn">
+                    <img src="img/vector-2.svg" alt="Next">
+                </button>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Style/j.jpg" alt="Gallery image 1" 
+                         data-title="Artwork Title 1" 
+                         data-desc="Description of your first artwork goes here. This is a beautiful piece that showcases traditional techniques and style.">
+                </div>
+                <div class="gallery-item">
+                    <img src="Style/j.jpg" alt="Gallery image 2" 
+                         data-title="Artwork Title 2" 
+                         data-desc="Description of your second artwork. Explain the inspiration, materials used, and the story behind this piece.">
+                </div>
+                <div class="gallery-item">
+                    <img src="Style/j.jpg" alt="Gallery image 3" 
+                         data-title="Artwork Title 3" 
+                         data-desc="Description of your third artwork. Share details about when it was created, the techniques used, and what it represents.">
+                </div>
+                <div class="gallery-item">
+                    <img src="Style/j.jpg" alt="Gallery image 4" 
+                         data-title="Artwork Title 4" 
+                         data-desc="Description of your fourth artwork. Discuss the cultural significance or personal meaning behind this creation.">
+                </div>
+                <div class="gallery-item">
+                    <img src="Style/j.jpg" alt="Gallery image 5" 
+                         data-title="Artwork Title 5" 
+                         data-desc="Description of your fifth artwork. Explain the creative process and any challenges you faced while making this piece.">
+                </div>
+                <div class="gallery-item">
+                    <img src="Style/j.jpg" alt="Gallery image 6" 
+                         data-title="Artwork Title 6" 
+                         data-desc="Description of your sixth artwork. Share what makes this piece special and how it fits into your overall body of work.">
+                </div>
+                <div class="gallery-item">
+                    <img src="Style/j.jpg" alt="Gallery image 7" 
+                         data-title="Artwork Title 7" 
+                         data-desc="Description of your seventh artwork. Talk about the reception of this piece and what you learned from creating it.">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-text">
+                <h2 id="modalTitle"></h2>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">ALVY <span class="accent">ARNOB</span></div>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <img src="Style/Icons/FB.png" alt="Facebook" width="24">
+                    <span>Facebook</span>
+                </a>
+                <a href="#" class="social-link">
+                    <img src="Style/Icons/IG.png" alt="Instagram" width="24">
+                    <span>Instagram</span>
+                </a>
+                <a href="#" class="social-link">
+                    <img src="Style/Icons/LD.png" alt="LinkedIn" width="24">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="#" class="social-link">
+                    <img src="Style/Icons/WA.png" alt="WhatsApp" width="20">
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top">
+        <img src="img/vector.svg" alt="Scroll to top">
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll to top
+        const scrollButton = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+        scrollButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDesc = document.getElementById("modalDesc");
+        const closeBtn = document.querySelector(".close-btn");
+
+        // Add click event to all gallery images
+        document.querySelectorAll(".gallery-item img").forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+                modalTitle.textContent = img.dataset.title;
+                modalDesc.textContent = img.dataset.desc;
+            });
+        });
+
+        // Close modal when clicking close button
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        // Close modal when clicking outside content
+        window.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
