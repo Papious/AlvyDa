@@ -116,6 +116,19 @@ img { max-width: 100%; height: auto; }
 .dropdown-menu li a:hover { color: #bf9049; }
 .dropdown:hover .dropdown-menu { display: block; }
 
+/* Mobile Dropdown Styles */
+.dropdown.active .dropdown-menu {
+    display: block;
+    position: static;
+    background-color: transparent;
+    border: none;
+    padding: 10px 0 10px 20px;
+    min-width: auto;
+}
+.dropdown.active .dropdown-menu li {
+    padding: 8px 0;
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -187,22 +200,87 @@ img { max-width: 100%; height: auto; }
 .stat-text { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: #ffffff; line-height: 1.4; }
 .stat-text .gold { color: #bf9049; display: block; margin-top: 5px; }
 
-/* Work Section */
+/* Work Section - UPDATED FOR BUTTON SPACING */
 .work-section { padding: 150px 0; }
 .work-container { display: flex; flex-direction: column; gap: 100px; }
-@media (min-width: 992px) { .work-container { gap: 400px; } }
-.work-item { display: flex; flex-direction: column; gap: 30px; position: relative; }
-@media (min-width: 992px) { .work-item { flex-direction: row; align-items: flex-start; } .work-item.reverse { flex-direction: row-reverse; } .work-content { flex: 0 0 40%; } .work-image { flex: 0 0 60%; } }
-.work-image { overflow: hidden; position: relative; width: 100%; height: 300px; }
+@media (min-width: 992px) { 
+    .work-container { gap: 400px; } 
+}
+.work-item { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 30px; 
+    position: relative; 
+    padding-bottom: 150px; /* Added consistent bottom padding for button spacing */
+}
+@media (min-width: 992px) { 
+    .work-item { 
+        flex-direction: row; 
+        align-items: flex-start; 
+        padding-bottom: 0; /* Remove padding on desktop since button is positioned absolutely */
+    } 
+    .work-item.reverse { flex-direction: row-reverse; } 
+    .work-content { flex: 0 0 40%; } 
+    .work-image { flex: 0 0 60%; } 
+}
+.work-image { 
+    overflow: hidden; 
+    position: relative; 
+    width: 100%; 
+    height: 300px; 
+}
 .work-image .slides { display: flex; width: 100%; transition: transform 1s ease-in-out; }
 .work-image .slides img { width: 100%; height: 100%; object-fit: cover; display: block; box-shadow:0 5px 15px rgba(0,0,0,0.2); }
 .work-title { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 2.5rem; margin-bottom: 1rem; text-align: left; }
 .work-item.reverse .work-title { text-align: right; }
 .work-title span.accent { color: #bf9049; }
 .work-description { font-family: 'Nunito Sans', sans-serif; font-weight: 500; font-size: 1rem; line-height: 1.6; margin-bottom: 0; }
-.work-item .btn { display: inline-block; padding: 10px 25px; border: 1px solid #ffffff; border-radius: 500px; font-family: 'Nunito Sans', sans-serif; font-size: 0.9rem; color: #ffffff; text-align: center; transition: all 0.3s ease; margin-top: 20px; align-self: center; position: absolute; bottom: -150px; left: 50%; transform: translateX(-50%); z-index: 2; }
+
+/* Work Button Container - NEW for better button spacing */
+.work-button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.work-item .btn { 
+    display: inline-block; 
+    padding: 10px 25px; 
+    border: 1px solid #ffffff; 
+    border-radius: 500px; 
+    font-family: 'Nunito Sans', sans-serif; 
+    font-size: 0.9rem; 
+    color: #ffffff; 
+    text-align: center; 
+    transition: all 0.3s ease; 
+    position: relative; /* Changed from absolute to relative for better mobile control */
+    z-index: 2; 
+}
 .work-item .btn:hover { background-color: rgba(255,255,255,0.1); }
-@media (max-width: 991px) { .work-item .btn { bottom:-40px; } .work-title { font-size:2rem; } }
+
+/* Desktop button positioning */
+@media (min-width: 992px) { 
+    .work-button-container {
+        position: absolute;
+        bottom: -150px;
+        left: 0;
+        width: 100%;
+        margin-top: 0;
+    }
+    .work-item .btn {
+        position: static;
+        transform: none;
+    }
+}
+
+/* Mobile button adjustments */
+@media (max-width: 991px) { 
+    .work-item { 
+        padding-bottom: 100px; /* Reduced padding for mobile */
+    }
+    .work-title { font-size:2rem; } 
+}
 
 /* About Section */
 .about { padding: 150px 0; position: relative; background-color: #000; }
@@ -314,20 +392,53 @@ img { max-width: 100%; height: auto; }
 }
 @media(max-width:768px) {
     .nav-menu {
-        position:fixed; top:0; right:-100%;
-        width:70%; height:100vh;
+        position:fixed; 
+        top:0; 
+        right:-100%;
+        width:70%; 
+        height:100vh;
         background-color:#000;
         flex-direction:column;
-        justify-content:center;
-        align-items:center;
+        justify-content:flex-start;
+        align-items:flex-start;
+        padding-top: 80px;
         transition:right 0.3s ease;
         z-index:100;
+        overflow-y: auto;
     }
     .nav-menu.active { right:0; }
     .hamburger { display:flex; z-index:101; }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
     .hamburger.active span:nth-child(2) { opacity:0; }
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+    
+    /* Mobile navigation items */
+    .nav-item {
+        width: 100%;
+        border-bottom: 1px solid #222;
+    }
+    .nav-item a {
+        display: block;
+        padding: 15px 20px;
+        font-size: 1rem;
+    }
+    
+    /* Mobile dropdown styles */
+    .dropdown.active .dropdown-menu {
+        display: block;
+        position: static;
+        background-color: rgba(255,255,255,0.05);
+        width: 100%;
+        padding: 0;
+    }
+    .dropdown.active .dropdown-menu li {
+        padding: 10px 20px 10px 40px;
+        border-bottom: 1px solid #222;
+    }
+    .dropdown.active .dropdown-menu li:last-child {
+        border-bottom: none;
+    }
+    
     .hero-title { font-size:2.5rem; }
     .hero-subtitle { font-size:1.2rem; }
     .stats-container { flex-direction:column; gap:40px; }
@@ -346,10 +457,21 @@ img { max-width: 100%; height: auto; }
         width: 2.5rem;
         height: 2.5rem;
     }
+    
+    /* Mobile work section adjustments */
+    .work-item {
+        padding-bottom: 80px; /* Adjusted for mobile */
+    }
+    .work-button-container {
+        margin-top: 30px;
+    }
 }
 @media(max-width:480px) {
     .footer-logo { font-size: 1.75rem; }
     .social-links {
         gap: 40px; /* smaller spacing on mobile */
+    }
+    .work-item {
+        padding-bottom: 70px; /* Further adjusted for small mobile */
     }
 }
