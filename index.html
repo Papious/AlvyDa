@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alvy Arnob - Artist Portfolio</title>
+    <link rel="stylesheet" href="Style/css/style.css">
+    <script src="Javascript/main.js"></script>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div id="top" style="position: absolute; top: 0;"></div>
+    
+    <!-- Navigation (Updated for mobile dropdown functionality) -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <div class="logo">
+          <a href="index.html">ALVY <span class="accent">ARNOB</span></a>
+        </div>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item dropdown">
+            <a href="workspace.html" class="dropdown-toggle">WORK</a>
+            <ul class="dropdown-menu">
+              <li><a href="workspace.html#traditional">Traditional</a></li>
+              <li><a href="workspace.html#digital">Digital</a></li>
+              <li><a href="workspace.html#animation">Animation</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="about.html">ABOUT ME</a></li>
+          <li class="nav-item"><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="Style/Assets/Alvy 2 1.png" alt="Alvy Arnob" class="hero-image">
+        <div class="container hero-content">
+            <div class="hero-title">
+                <span class="first-name">ALVY</span>
+                <span class="last-name-container">
+                    <span class="last-name-original">ARNOB</span>
+                    <span class="last-name-replacement">ARNOB</span>
+                </span>
+            </div>
+            <div class="hero-subtitle">
+                <span class="word artist">ARTIST</span> | 
+                <span class="word illustrator">ILLUSTRATOR</span> | 
+                <span class="word animator">ANIMATOR</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container stats-container">
+            <div class="stat-item">
+                <div class="stat-number gold" data-start="2" data-end="7" data-duration="2000">7+</div>
+                <div class="stat-text">YEARS OF EXPERIENCE</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-text">
+                    WORKED WITH MULTIPLE <br>
+                    <span class="gold">STUDIOS AND AGENCIES</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number gold" data-start="69" data-end="200" data-duration="1800">200+</div>
+                <div class="stat-text">CLIENTS SERVED</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section (Updated button spacing) -->
+    <section class="work-section">
+        <div class="container work-container">
+            <!-- Traditional Work -->
+            <div class="work-item">
+                <div class="work-content">
+                    <h2 class="work-title"><span class="accent">TRADITIONAL</span> <br>WORK</h2>
+                    <p class="work-description">
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit...
+                    </p>
+                </div>
+                <div class="work-image slider">
+                    <div class="slides">
+                        <img src="Style/Assets/j1.jpg" alt="Traditional Work 1">
+                        <img src="Style/Assets/j2.jpg" alt="Traditional Work 2">
+                        <img src="Style/Assets/j3.jpg" alt="Traditional Work 3">
+                        <img src="Style/Assets/j4.jpg" alt="Traditional Work 4">
+                    </div>
+                </div>
+                <div class="work-button-container">
+                    <a href="workspace.html#traditional" class="btn">View More</a>
+                </div>
+            </div>
+
+            <!-- Digital Work -->
+            <div class="work-item reverse">
+                <div class="work-content">
+                    <h2 class="work-title"><span class="accent">DIGITAL</span> WORK</h2>
+                    <p class="work-description">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit...
+                    </p>
+                </div>
+                <div class="work-image slider">
+                    <div class="slides">
+                        <img src="Style/Assets/j1.jpg" alt="Digital Work 1">
+                        <img src="Style/Assets/j2.jpg" alt="Digital Work 2">
+                        <img src="Style/Assets/j3.jpg" alt="Digital Work 3">
+                        <img src="Style/Assets/j4.jpg" alt="Digital Work 4">
+                    </div>
+                </div>
+                <div class="work-button-container">
+                    <a href="workspace.html#digital" class="btn">View More</a>
+                </div>
+            </div>
+
+            <!-- Animation Work -->
+            <div class="work-item">
+                <div class="work-content">
+                    <h2 class="work-title"><span class="accent">ANIMATION</span> <br>WORK</h2>
+                    <p class="work-description">
+                        I have been drawing since childhood and my love for art has only grown with time...
+                    </p>
+                </div>
+                <div class="work-image slider">
+                    <div class="slides">
+                        <img src="Style/Assets/j1.jpg" alt="Animation Work 1">
+                        <img src="Style/Assets/j2.jpg" alt="Animation Work 2">
+                        <img src="Style/Assets/j3.jpg" alt="Animation Work 3">
+                        <img src="Style/Assets/j4.jpg" alt="Animation Work 4">
+                    </div>
+                </div>
+                <div class="work-button-container">
+                    <a href="workspace.html#animation" class="btn">View More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <img src="Style/Assets/About me Mask.png" alt="About Alvy Arnob" class="about-image">
+            <div class="about-content">
+                <h2 class="about-title">MORE ABOUT ME</h2>
+                <p class="about-text">
+                    Hi, I am Alvy Arnob. I am an Artist, Illustrator and 2D Animator. I am currently studying Bachelor of Fine Arts at the University of Dhaka in the Department of Drawing and Painting.
+                </p>
+                <a href="about.html" class="btn">See More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="contact-title">LET'S BUILD SOMETHING<br>TOGETHER</h2>
+            <p class="contact-text">I'm excited to hear what you're looking for.</p>
+            <a href="contact.html" class="btn">Contact Now</a>
+        </div>
+    </section>
+
+    <!-- Footer (Replaced with workspace.html footer) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">ALVY <span class="accent">ARNOB</span></div>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <img src="Style/Icons/FB.svg" alt="Facebook" width="24">
+                    <span>Facebook</span>
+                </a>
+                <a href="#" class="social-link">
+                    <img src="Style/Icons/IG.svg" alt="Instagram" width="24">
+                    <span>Instagram</span>
+                </a>
+                <a href="#" class="social-link">
+                    <img src="Style/Icons/LD.svg" alt="LinkedIn" width="24">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="#" class="social-link">
+                    <img src="Style/Icons/WA.svg" alt="WhatsApp" width="20">
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top">
+        <img src="Style/Icons/Subtract.svg" alt="Scroll to top">
+    </div>
+</body>
+</html>
