@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Alvy Arnob</title>
+  <link rel="stylesheet" href="Style/css/contact.css" />
+</head>
+<body>
+  
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <a href="index.html">ALVY <span class="accent">ARNOB</span></a>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item dropdown">
+          <a href="workspace.html" class="dropdown-toggle">WORK</a>
+          <ul class="dropdown-menu">
+            <li><a href="workspace.html#traditional">Traditional</a></li>
+            <li><a href="workspace.html#digital">Digital</a></li>
+            <li><a href="workspace.html#animation">Animation</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="about.html">ABOUT ME</a></li>
+        <li class="nav-item"><a href="contact.html">CONTACT</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-header">
+        <h1 class="contact-title">LET'S WORK, TOGETHER</h1>
+        <p class="contact-subtitle">I'm excited to see what we can dream up.</p>
+      </div>
+      
+      <form class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-input" placeholder="FIRST NAME">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-input" placeholder="LAST NAME">
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="EMAIL">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone No.</label>
+            <input type="tel" class="form-input" placeholder="PHONE NO.">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label project-label">*Describe your project here</label>
+          <textarea class="form-input" placeholder="TYPE YOUR MESSAGE"></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-logo">ALVY <span class="accent">ARNOB</span></div>
+      <div class="social-links">
+        <a href="#" class="social-link">
+          <img src="Style/Icons/FB.svg" alt="Facebook" width="24">
+          <span>Facebook</span>
+        </a>
+        <a href="#" class="social-link">
+          <img src="Style/Icons/IG.svg" alt="Instagram" width="24">
+          <span>Instagram</span>
+        </a>
+        <a href="#" class="social-link">
+          <img src="Style/Icons/LD.svg" alt="LinkedIn" width="24">
+          <span>LinkedIn</span>
+        </a>
+        <a href="#" class="social-link">
+          <img src="Style/Icons/WA.svg" alt="WhatsApp" width="20">
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Hamburger Menu - REPLACED WITH MAIN PAGE FUNCTIONALITY
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Mobile Dropdown Functionality - ADDED FROM MAIN PAGE
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    // Close all dropdowns
+    function closeAllDropdowns() {
+      dropdowns.forEach(dropdown => {
+        dropdown.classList.remove('active');
+      });
+    }
+
+    // Handle dropdown toggle clicks
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', function(e) {
+        // Only prevent default and handle dropdown on mobile
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const parentDropdown = this.closest('.dropdown');
+          const isActive = parentDropdown.classList.contains('active');
+          
+          // Close all dropdowns first
+          closeAllDropdowns();
+          
+          // If this dropdown wasn't active, open it
+          if (!isActive) {
+            parentDropdown.classList.add('active');
+          }
+        }
+        // On desktop, let the hover behavior work naturally
+      });
+    });
+
+    // Close dropdowns when clicking on regular nav items
+    document.querySelectorAll('.nav-item:not(.dropdown)').forEach(item => {
+      item.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        closeAllDropdowns();
+      });
+    });
+
+    // Close dropdowns when clicking on dropdown menu items
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        closeAllDropdowns();
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-menu') && window.innerWidth <= 768) {
+        closeAllDropdowns();
+      }
+    });
+
+    // Close menu when resizing to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        closeAllDropdowns();
+      }
+    });
+  </script>
+</body>
+</html>

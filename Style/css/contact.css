@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..900;1,6..12,200..900&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 100%;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  padding-top: 70px; /* prevent overlap under fixed navbar */
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header/Navigation - UPDATED HAMBURGER FUNCTIONALITY */
+.navbar {
+  background-color: #000000;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.logo span.accent {
+  color: #bf9049;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-item a {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-item a:hover {
+  color: #bf9049;
+}
+
+/* Hamburger menu - UPDATED */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 2px 0;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px,5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity:0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px,-5px);
+}
+
+/* Dropdown Menu - UPDATED FOR MOBILE FUNCTIONALITY */
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -50%;
+  background-color: #000000;
+  padding: 10px 0;
+  min-width: 180px;
+  border: 1px solid #222;
+  z-index: 2000;
+}
+.dropdown-menu li {
+  padding: 8px 20px;
+}
+.dropdown-menu li a {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.75rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  display: block;
+  transition: color 0.3s ease;
+}
+.dropdown-menu li a:hover { color: #bf9049; }
+.dropdown:hover .dropdown-menu { display: block; }
+
+/* Mobile Dropdown Styles - ADDED */
+.dropdown.active .dropdown-menu {
+  display: block;
+  position: static;
+  background-color: transparent;
+  border: none;
+  padding: 10px 0 10px 20px;
+  min-width: auto;
+}
+.dropdown.active .dropdown-menu li {
+  padding: 8px 0;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 80px 0;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.contact-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #bf9049;
+}
+
+.contact-form {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 250px;
+}
+
+.form-label {
+  display: none;
+}
+
+.project-label {
+  display: block;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: #6d6d6d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #bf9049;
+  background-color: transparent;
+  color: #ffffff;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+}
+
+.form-input::placeholder {
+  color: #c4c4c4;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+textarea.form-input {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  display: block;
+  margin: 40px auto 0;
+  padding: 12px 50px;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #d9d9d9;
+  border-radius: 100px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #bf9049;
+  color: #ffffff;
+  border-color: #bf9049;
+}
+
+/* Footer */
+.footer {
+  padding: 60px 0 30px;
+  border-top: 1px solid #0d0d0d;
+}
+
+.footer-container {
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 3.5rem;
+}
+
+.footer-logo span.accent {
+  color: #bf9049;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-bottom: 2rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+/* Tablet size - hide text, increase gap */
+@media (max-width: 1024px) {
+  /* Hide text for social icons */
+  .social-link span {
+    display: none;
+  }
+
+  /* Center icons & increase spacing */
+  .social-links {
+    justify-content: center;
+    gap: 70px; /* increased spacing for tablet */
+  }
+}
+
+/* Responsive adjustments - UPDATED MOBILE NAVIGATION */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #000000;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 80px;
+    transition: right 0.3s ease;
+    z-index: 100;
+    overflow-y: auto;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  /* Mobile navigation items - ADDED */
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid #222;
+  }
+  .nav-item a {
+    display: block;
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+  
+  /* Mobile dropdown styles - UPDATED */
+  .dropdown.active .dropdown-menu {
+    display: block;
+    position: static;
+    background-color: rgba(255,255,255,0.05);
+    width: 100%;
+    padding: 0;
+  }
+  .dropdown.active .dropdown-menu li {
+    padding: 10px 20px 10px 40px;
+    border-bottom: 1px solid #222;
+  }
+  .dropdown.active .dropdown-menu li:last-child {
+    border-bottom: none;
+  }
+
+  .contact-header {
+    margin-bottom: 30px;
+  }
+  
+  .contact-title {
+    font-size: 1.2rem;
+  }
+  
+  .form-row {
+    gap: 20px;
+  }
+  
+  .footer-logo {
+    font-size: 2rem;
+  }
+  
+  .social-links {
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 480px) {
+  .footer-logo {
+    font-size: 1.75rem;
+  }
+  
+  .social-links {
+    gap: 40px; /* smaller spacing on mobile */
+  }
+}
